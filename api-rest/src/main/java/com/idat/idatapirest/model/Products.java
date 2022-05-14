@@ -25,61 +25,57 @@ public class Products implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idProducto;
-	private String nombreProducto;
-	private String descripcion;
-	private Double precio;
-	private Integer stock;
+	private Integer idUsuario;
+	private String user;
+	private String password;
+	private Double rol;
+	
 
 	@OneToOne(mappedBy = "products")
 	private Suppliers suppliers;
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name="producto_cliente",
-			joinColumns = @JoinColumn(name="id_producto", nullable = false, unique = true,foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_producto) references products (id_producto)")),
+			joinColumns = @JoinColumn(name="id_usuario", nullable = false, unique = true,foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_producto) references products (id_producto)")),
 			inverseJoinColumns =  @JoinColumn(name="id_cliente", nullable = false, unique = true,foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_cliente) references clients (id_cliente)"))
 	)
 	private List<Clients> clients = new ArrayList<>();
 
-	public Integer getIdProducto() {
+	public Integer getIdUsuario() {
 		return idProducto;
 	}
 
-	public void setIdProducto(Integer idProducto) {
+	public void setIdUsuario(Integer idProducto) {
 		this.idProducto = idProducto;
 	}
 
-	public String getNombreProducto() {
+	public String setUser() {
 		return nombreProducto;
 	}
 
-	public void setNombreProducto(String nombreProducto) {
-		this.nombreProducto = nombreProducto;
+	public void setUser(String user) {
+		this.user = user;
 	}
 
-	public String getDescripcion() {
+	public String getPassword() {
 		return descripcion;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public Double getPrecio() {
+	public Double getRol() {
 		return precio;
 	}
 
-	public void setPrecio(Double precio) {
-		this.precio = precio;
+	public void setRol(Double rol) {
+		this.rol = rol;
 	}
 
-	public Integer getStock() {
-		return stock;
-	}
+	
 
-	public void setStock(Integer stock) {
-		this.stock = stock;
-	}
+
 
 	public Suppliers getSuppliers() {
 		return suppliers;
