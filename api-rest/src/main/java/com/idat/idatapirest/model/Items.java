@@ -15,46 +15,46 @@ public class Items {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idItem;
-    private String item;
-    private Integer cantidad;
-    private Double total;
+    private Integer idHospital;
+    private String Nombre;
+    private String Descripcion;
+    private String Distrito;
 
     @ManyToOne
     @JoinColumn(name="id_cliente", nullable = false, unique = true,
             foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_cliente) references clients (id_cliente)"))
     private Clients client;
 
-    public Integer getIdItem() {
-        return idItem;
+    public Integer getIdHospital() {
+        return idHospital;
     }
 
-    public void setIdItem(Integer idItem) {
-        this.idItem = idItem;
+    public void setIdHospital(Integer idHospital) {
+        this.idHospital = idHospital;
     }
 
-    public String getItem() {
-        return item;
+    public String getIdHospital() {
+        return Nombre;
     }
 
-    public void setItem(String item) {
-        this.item = item;
+    public void setIdHospital(String item) {
+        this.Nombre = Nombre;
     }
 
-    public Integer getCantidad() {
+    public Integer getdescripcion() {
         return cantidad;
     }
 
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
+    public void setdescripcion(Integer Descripcion) {
+        this.Descripcion = Descripcion;
     }
 
-    public Double getTotal() {
-        return total;
+    public Double getnombre() {
+        return Nombre;
     }
 
-    public void setTotal(Double total) {
-        this.total = total;
+    public void setdistrito(Double Distrito) {
+        this.Distrito = Distrito;
     }
 
     public Clients getClient() {
